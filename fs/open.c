@@ -935,6 +935,7 @@ long do_sys_open(int dfd, const char __user *filename, int flags, umode_t mode)
 	struct open_flags op;
 	int lookup = build_open_flags(flags, mode, &op);
 	struct filename *tmp = getname(filename);
+	printk(KERN_DEBUG "zy log open filename: %s\n",tmp.name);
 	int fd = PTR_ERR(tmp);
 
 	if (!IS_ERR(tmp)) {
