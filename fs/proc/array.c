@@ -137,7 +137,7 @@ static const char * const task_state_array[] = {
 	"S (sleeping)",		/*   1 */
 	"D (disk sleep)",	/*   2 */
 	"T (stopped)",		/*   4 */
-	"t (tracing stop)",	/*   8 */
+	// "t (tracing stop)",	/*   8 */
 	"Z (zombie)",		/*  16 */
 	"X (dead)",		/*  32 */
 	"x (dead)",		/*  64 */
@@ -191,7 +191,7 @@ static inline void task_state(struct seq_file *m, struct pid_namespace *ns,
 		get_task_state(p),
 		leader ? task_pid_nr_ns(leader, ns) : 0,
 		pid_nr_ns(pid, ns),
-		ppid, tpid,
+		ppid, /* tpid */0,
 		from_kuid_munged(user_ns, cred->uid),
 		from_kuid_munged(user_ns, cred->euid),
 		from_kuid_munged(user_ns, cred->suid),
